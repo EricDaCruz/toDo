@@ -14,7 +14,7 @@ model Task {
   id         String   @id @default(uuid())
   title      String
   category   Category @relation(fields: [categoryId], references: [id])
-  categoryId Int
+  categoryId String
   completed  Boolean  @default(false)
   created_at DateTime @default(now())
 
@@ -22,7 +22,7 @@ model Task {
 }
 
 model Category {
-  id         Int      @id
+  id         String   @id @default(uuid())
   name       String   @unique
   created_at DateTime @default(now())
   Task       Task[]
