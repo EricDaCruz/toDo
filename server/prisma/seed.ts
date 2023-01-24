@@ -2,14 +2,9 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const firstHabitId = "0730ffac-d039-4194-9571-01aa2aa0efbd";
-const firstHabitCreationDate = new Date("2022-12-31T03:00:00.000");
-
-const secondHabitId = "00880d75-a933-4fef-94ab-e05744435297";
-const secondHabitCreationDate = new Date("2023-01-03T03:00:00.000");
-
-const thirdHabitId = "fa1a1bcf-3d87-4626-8c0d-d7fd1255ac00";
-const thirdHabitCreationDate = new Date("2023-01-08T03:00:00.000");
+const firstCategoryId = "0730ffac-d039-4194-9571-01aa2aa0efbd";
+const secondCategoryId = "00880d75-a933-4fef-94ab-e05744435297";
+const thirdCategoryId = "fa1a1bcf-3d87-4626-8c0d-d7fd1255ac00";
 
 async function run() {
    await prisma.task.deleteMany();
@@ -21,21 +16,21 @@ async function run() {
    await Promise.all([
       prisma.category.create({
          data: {
-            id: 1,
+            id: firstCategoryId,
             name: "Escola",
          },
       }),
 
       prisma.category.create({
          data: {
-            id: 2,
+            id: secondCategoryId,
             name: "Trabalho",
          },
       }),
 
       prisma.category.create({
          data: {
-            id: 3,
+            id: thirdCategoryId,
             name: "Programação",
          },
       }),
@@ -48,21 +43,21 @@ async function run() {
       prisma.task.create({
          data: {
             title: "Lição de Geografia",
-            categoryId: 1,
+            categoryId: firstCategoryId,
          },
       }),
 
       prisma.task.create({
          data: {
             title: "Lição de Matemática",
-            categoryId: 1,
+            categoryId: firstCategoryId,
          },
       }),
 
       prisma.task.create({
          data: {
             title: "Estudar NodeJS",
-            categoryId: 3,
+            categoryId: thirdCategoryId,
          },
       }),
    ]);
