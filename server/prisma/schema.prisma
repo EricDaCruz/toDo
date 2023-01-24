@@ -15,13 +15,14 @@ model Task {
   title      String
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId Int
+  completed  Boolean  @default(false)
   created_at DateTime @default(now())
 
   @@map("tasks")
 }
 
 model Category {
-  id         Int      @id @default(autoincrement())
+  id         Int      @id
   name       String   @unique
   created_at DateTime @default(now())
   Task       Task[]

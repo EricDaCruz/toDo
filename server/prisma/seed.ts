@@ -21,18 +21,21 @@ async function run() {
    await Promise.all([
       prisma.category.create({
          data: {
+            id: 1,
             name: "Escola",
          },
       }),
 
       prisma.category.create({
          data: {
+            id: 2,
             name: "Trabalho",
          },
       }),
 
       prisma.category.create({
          data: {
+            id: 3,
             name: "Programação",
          },
       }),
